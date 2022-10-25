@@ -1,6 +1,5 @@
 import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Footer from './Pages/Shared/Footer/Footer';
 import { routes } from './Routes/Routes/Routes';
 
 function App() {

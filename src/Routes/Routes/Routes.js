@@ -16,7 +16,13 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                // loader: fetch('https://skill-up-server.vercel.app/courses')
+                loader: () => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses`)
+
+            },
+            {
+                path: '/courses/:id',
+                element: <Courses></Courses>,
+                loader: ({params}) => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses/${params.id}`)
 
             },
             {
