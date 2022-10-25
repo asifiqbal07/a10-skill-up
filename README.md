@@ -1,8 +1,9 @@
-# SkillUp
+# Skill Up
 
 
 # Links - 
 + Server Github Link: https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-asifiqbal07
++ Client Side Link: https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-asifiqbal07
 
 
 
