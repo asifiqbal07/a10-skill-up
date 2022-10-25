@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaDiscord, FaInstagram } from "react-icons/fa";
+import Carousels from './Carousel/Carousels';
 
 const RightSideNav = () => {
     return (
@@ -19,6 +20,7 @@ const RightSideNav = () => {
                     <Button variant="outline-dark" className='mb-2 px-lg-5'> <FaInstagram className='mb-1'></FaInstagram> Instagram</Button>
                 </ButtonGroup>
             </div>
+            <Carousels></Carousels>
         </div>
     );
 };

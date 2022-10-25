@@ -8,10 +8,10 @@ const Courses = () => {
             <Container>
                 <Row>
                     <Col lg="9">
-                    <h1>Courses here</h1>
+                        <h1>Explore Our Popular Courses</h1>
                     </Col>
                     <Col lg="3">
-                    <RightSideNav></RightSideNav>
+                        <RightSideNav></RightSideNav>
                     </Col>
                 </Row>
             </Container>
