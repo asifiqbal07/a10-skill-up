@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import bg3 from '../../assets/3.webp'
 
@@ -9,7 +10,7 @@ const Home = () => {
             <div className='w-lg-50 text-center text-lg-start'>
                 <h1 className='fw-bold'><span className='text-danger'>Online</span> Tutorial From Top Instructor.</h1>
                 <p>Meet university,and cultural institutions, who'll share their experience.</p>
-                <Link to='courses'><Button variant="danger" className='mt-2'>Learn More</Button></Link>
+                <Link to='courses'><Button variant="danger" className='mt-2'>Check Our Popular Courses <FaChevronRight className='mb-1'></FaChevronRight> </Button></Link>
             </div>
 
             <div>

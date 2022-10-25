@@ -8,12 +8,12 @@ const Courses = () => {
     const allCourses = useLoaderData();
     console.log(allCourses);
     return (
-        <div>
+        <div className='mb-4'>
             <Container>
                 <Row>
-                    <Col lg="9">
-                        <h1>Explore Our Popular Courses: {allCourses.length}</h1>
-                        <Row className='gap-4 mt-4 ' xs={1} md={2} lg={3}>
+                    <Col lg="8">
+                        <h2 className='fw-bold'>Explore Our <span className='text-danger'>Popular Courses</span></h2>
+                        <Row className='gap-5 mt-4 ' xs={1} md={2} lg={3}>
                         {
                             allCourses.map(course => <Course 
                             key={course.id} course={course}
@@ -21,7 +21,7 @@ const Courses = () => {
                         }
                         </Row>
                     </Col>
-                    <Col lg="3">
+                    <Col lg="4">
                         <RightSideNav></RightSideNav>
                     </Col>
                 </Row>

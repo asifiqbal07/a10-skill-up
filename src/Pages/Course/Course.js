@@ -10,8 +10,8 @@ const Course = ({ course }) => {
     console.log(course);
     return (
         <div>
-            <Col className='p-2'>
-                <Card className='shadow-sm'>
+            <Col className='p-2 '>
+                <Card className='shadow-sm' style={{ width: '18rem' }}  >
                     <Card.Img className='p-2 rounded-4' variant="top" src={image_url} />
                     <Card.Body className='py-2'>
 
@@ -43,7 +43,7 @@ const Course = ({ course }) => {
                         <h5 className='text-danger mb-0'>{course_details.price}</h5>
 
                         <Button variant="danger" className='border-0 fw-semibold'>
-                            <Link className='text-decoration-none text-white' to={`/courses/${id}`}>Know Details <FaArrowRight className='mb-1'></FaArrowRight> </Link></Button>
+                            <Link className='text-decoration-none text-white' to={`/courses/${id}`}>Details <FaArrowRight className='mb-1'></FaArrowRight> </Link></Button>
 
                     </Card.Footer>
                 </Card>

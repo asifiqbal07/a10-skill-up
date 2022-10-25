@@ -1,12 +1,11 @@
 import React from 'react';
-import { Col, Container, Image, Row } from 'react-bootstrap';
-import { FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
-import RightSideNav from '../RightSideNav/RightSideNav';
+import { Button, Col, Container, Image, Row } from 'react-bootstrap';
+import { FaDownload, FaLanguage, FaRegClock, FaRegUser, FaStar, FaUsers } from 'react-icons/fa';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
-    const { name, course_instructor, total_download, rating, image_url, overview } = courseDetails;
+    const { name, course_instructor, total_download, rating, image_url, overview, course_details } = courseDetails;
     console.log(courseDetails);
     return (
         <div>
@@ -38,6 +37,14 @@ const CourseDetails = () => {
                                         <small className='ms-1'>({rating.number})</small>
                                     </div>
                                 </div>
+                                <div className='ms-lg-5 ps-lg-5 mt-3 mt-lg-0'>
+                                    <div className='d-flex flex-column align-items-center'>
+                                        <h6 className='mb-0'>Download File</h6>
+                                        <Link to="/files/myfile.pdf" target="_blank" download>
+                                            <FaDownload className='text-danger fs-5 mt-1'></FaDownload></Link>
+
+                                    </div>
+                                </div>
                             </div>
                             <div className='mt-4'>
                                 <img className='img-fluid' src={image_url} alt="" />
@@ -46,11 +53,40 @@ const CourseDetails = () => {
                                 <h3 className='fw-bold'>Course Overview</h3>
                                 <p>{overview}</p>
                             </div>
+                            <hr />
                         </div>
 
                     </Col>
                     <Col lg="3">
-                        <RightSideNav></RightSideNav>
+                        <div className='shadow-sm mt-3 mt-lg-5 mb-5'>
+                            <div className='p-4'>
+                                <h4 className='fw-semibold text-center'>{name}</h4>
+                                <h5 className='fw-bold ms-2 mt-3'>Price:<span className='text-danger'> {course_details.price}</span><span className='fw-semibold text-danger'>.00</span> </h5>
+                                <div className='d-flex align-items-center ps-2 mt-3'>
+                                    <span><FaRegUser className='text-secondary me-2 text-danger'></FaRegUser> Instructor:</span>
+                                    <h6 className='ms-2 mb-0'>{course_instructor?.name}</h6>
+                                </div>
+                                <hr className='w-75 mx-auto text-danger' />
+                                <div className='d-flex align-items-center ps-2'>
+                                    <span><FaRegClock className='text-secondary me-2 text-danger'></FaRegClock> Duration:</span>
+                                    <h6 className='ms-2 mb-0'>{course_details?.duration}</h6>
+                                </div>
+                                <hr className='w-75 mx-auto text-danger' />
+                                <div className='d-flex align-items-center ps-2'>
+                                    <span><FaUsers className='text-secondary me-2 text-danger'></FaUsers> Enrolled:</span>
+                                    <h6 className='ms-2 mb-0'>{course_details?.enrolled}</h6>
+                                </div>
+                                <hr className='w-75 mx-auto text-danger' />
+                                <div className='d-flex align-items-center ps-2 '>
+                                    <span><FaLanguage className='text-secondary me-2 text-danger'></FaLanguage> Language:</span>
+                                    <h6 className='ms-2 mb-0'>{course_details?.language}</h6>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center mx-3 mb-3 pb-3">
+
+                                <Button className='mx-auto block text-center' variant="danger">Premium Version</Button>
+                            </div>
+                        </div>
                     </Col>
                 </Row>
             </Container>
