@@ -29,7 +29,7 @@ const Course = ({ course }) => {
 
                         <div className='d-flex align-items-center mt-4'>
                             <div >
-                                <Image className='img-fluid shadow-md border border-2 '
+                                <Image className='img-fluid shadow-sm border border-2 '
                                     style={{ height: '40px' }}
                                     roundedCircle src={course_instructor?.img}></Image>
                             </div>
@@ -42,8 +42,7 @@ const Course = ({ course }) => {
                     <Card.Footer className="bg-white d-flex align-items-center justify-content-between">
                         <h5 className='text-danger mb-0'>{course_details.price}</h5>
 
-                        <Button variant="danger" className='border-0 fw-semibold'>
-                            <Link className='text-decoration-none text-white' to={`/courses/${id}`}>Details <FaArrowRight className='mb-1'></FaArrowRight> </Link></Button>
+                        <Link to={`/courses/${id}`}><Button variant="outline-danger" className=''>Details <FaArrowRight></FaArrowRight> </Button></Link>
 
                     </Card.Footer>
                 </Card>

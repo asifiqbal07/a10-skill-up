@@ -13,7 +13,7 @@ const Courses = () => {
                 <Row>
                     <Col lg="8">
                         <h2 className='fw-bold'>Explore Our <span className='text-danger'>Popular Courses</span></h2>
-                        <Row className='gap-5 mt-4 ' xs={1} md={2} lg={3}>
+                        <Row className='gap-5 mt-4' xs={1} md={2} lg={3}>
                         {
                             allCourses.map(course => <Course 
                             key={course.id} course={course}

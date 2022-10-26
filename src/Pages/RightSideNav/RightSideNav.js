@@ -1,20 +1,41 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaDiscord, FaInstagram } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaDiscord, FaInstagram, FaArrowRight, FaChevronRight } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 import Carousels from './Carousel/Carousels';
 
 const RightSideNav = () => {
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        fetch('https://skill-up-server-asifiqbal07.vercel.app/courses')
+            .then(res => res.json())
+            .then(data => setCategories(data))
+    }, [])
+
     return (
-        <div className='mt-4'>
-            <div>
-                <Carousels></Carousels>
+        <div className='sticky-top shadow mt-3 mt-lg-5 mb-4 p-3'>
+            
+            <div className='ps-2'>
+                <h4 className='text-center'>All Courses</h4>
+                <div className='mt-3 ms-3'>
+                {
+                    categories.map(category => <h6 className='m-0' key={category.id}>
+                        <Button variant="danger row justify-content-center w-100" className=''><Link className='text-decoration-none text-white'>{category.name}  <FaChevronRight></FaChevronRight> </Link></Button> <hr className='me-4' />
+                    </h6>)
+                }
+                </div>
             </div>
-            <ButtonGroup className='mt-4 d-flex'>
-                <Button variant="outline-primary" className=''><FaGoogle className='mb-1'></FaGoogle> Log in with Google</Button>
-                <Button variant="outline-dark" className=''> <FaGithub className='mb-1'></FaGithub> Log in with Github</Button>
-            </ButtonGroup>
-            {/* <div className='mt-2'>
+            
+            <div className=''>
+                <div>
+                    <Carousels></Carousels>
+                </div>
+                
+                {/* <div className='mt-2'>
                 <h5>Get Updates.</h5>
                 <ButtonGroup vertical>
                     <Button variant="outline-dark" className='mb-2 px-lg-5'> <FaFacebook className='mb-1'></FaFacebook> Facebook</Button>
@@ -24,6 +45,8 @@ const RightSideNav = () => {
                 </ButtonGroup>
             </div> */}
 
+            </div>
+            
         </div>
     );
 };

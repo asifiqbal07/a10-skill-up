@@ -16,7 +16,7 @@ const CourseDetails = () => {
                             <h2 className='fw-bold'>{name}</h2>
                             <div className='d-lg-flex align-items-center mt-4'>
                                 <div className='d-flex align-items-center '>
-                                    <div >
+                                    <div className=''>
                                         <Image className='img-fluid shadow-md border border-2 '
                                             style={{ height: '40px' }}
                                             roundedCircle src={course_instructor?.img}></Image>
@@ -38,7 +38,7 @@ const CourseDetails = () => {
                                     </div>
                                 </div>
                                 <div className='ms-lg-5 ps-lg-5 mt-3 mt-lg-0'>
-                                    <div className='d-flex flex-column align-items-center'>
+                                    <div className='d-lg-flex flex-column align-items-center'>
                                         <h6 className='mb-0'>Download File</h6>
                                         <Link to="/files/myfile.pdf" target="_blank" download>
                                             <FaDownload className='text-danger fs-5 mt-1'></FaDownload></Link>
@@ -46,7 +46,7 @@ const CourseDetails = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='mt-4'>
+                            <div className='mt-4 shadow-sm border-start border-5'>
                                 <img className='img-fluid' src={image_url} alt="" />
                             </div>
                             <div className='mt-3'>
@@ -58,25 +58,25 @@ const CourseDetails = () => {
 
                     </Col>
                     <Col lg="3">
-                        <div className='shadow-sm mt-3 mt-lg-5 mb-5'>
+                        <div className='shadow-sm mt-2 mt-lg-5 mb-5 sticky-top'>
                             <div className='p-4'>
-                                <h4 className='fw-semibold text-center'>{name}</h4>
-                                <h5 className='fw-bold ms-2 mt-3'>Price:<span className='text-danger'> {course_details.price}</span><span className='fw-semibold text-danger'>.00</span> </h5>
-                                <div className='d-flex align-items-center ps-2 mt-3'>
+                                <h4 className='fw-semibold text-center'>{name} Course.</h4>
+                                {/* <h5 className='fw-bold ms-2 mt-3'>Price:<span className='text-danger'> {course_details.price}</span><span className='fw-semibold text-danger'>.00</span> </h5> */}
+                                <div className='d-flex align-items-center ps-2 mt-4'>
                                     <span><FaRegUser className='text-secondary me-2 text-danger'></FaRegUser> Instructor:</span>
                                     <h6 className='ms-2 mb-0'>{course_instructor?.name}</h6>
                                 </div>
-                                <hr className='w-75 mx-auto text-danger' />
+                                <hr className='mx-auto text-danger' />
                                 <div className='d-flex align-items-center ps-2'>
                                     <span><FaRegClock className='text-secondary me-2 text-danger'></FaRegClock> Duration:</span>
                                     <h6 className='ms-2 mb-0'>{course_details?.duration}</h6>
                                 </div>
-                                <hr className='w-75 mx-auto text-danger' />
+                                <hr className=' mx-auto text-danger' />
                                 <div className='d-flex align-items-center ps-2'>
                                     <span><FaUsers className='text-secondary me-2 text-danger'></FaUsers> Enrolled:</span>
                                     <h6 className='ms-2 mb-0'>{course_details?.enrolled}</h6>
                                 </div>
-                                <hr className='w-75 mx-auto text-danger' />
+                                <hr className=' mx-auto text-danger' />
                                 <div className='d-flex align-items-center ps-2 '>
                                     <span><FaLanguage className='text-secondary me-2 text-danger'></FaLanguage> Language:</span>
                                     <h6 className='ms-2 mb-0'>{course_details?.language}</h6>
