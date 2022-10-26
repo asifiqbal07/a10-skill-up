@@ -34,17 +34,6 @@ const RightSideNav = () => {
                 <div>
                     <Carousels></Carousels>
                 </div>
-                
-                {/* <div className='mt-2'>
-                <h5>Get Updates.</h5>
-                <ButtonGroup vertical>
-                    <Button variant="outline-dark" className='mb-2 px-lg-5'> <FaFacebook className='mb-1'></FaFacebook> Facebook</Button>
-                    <Button variant="outline-dark" className='mb-2 px-lg-5'> <FaTwitter className='mb-1'></FaTwitter> Twitter</Button>
-                    <Button variant="outline-dark" className='mb-2 px-lg-5'> <FaDiscord className='mb-1'></FaDiscord> Discord</Button>
-                    <Button variant="outline-dark" className='mb-2 px-lg-5'> <FaInstagram className='mb-1'></FaInstagram> Instagram</Button>
-                </ButtonGroup>
-            </div> */}
-
             </div>
             
         </div>

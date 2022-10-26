@@ -87,7 +87,7 @@ const SignUp = () => {
                         label={<>Accept <Link to='/terms'>Terms & Condition...</Link></>} required />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" disabled={!accepted}>
+                <Button variant="danger" type="submit" disabled={!accepted}>
                     Sign UP
                 </Button>
                 <Form.Text className="text-danger me-2">

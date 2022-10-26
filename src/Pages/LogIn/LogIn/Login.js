@@ -63,7 +63,7 @@ const Login = () => {
                         <Form.Control type="password" name="password" placeholder="Password" required />
                     </Form.Group>
 
-                    <Button variant="primary" type="submit">
+                    <Button variant="danger" type="submit">
                         Submit
                     </Button>
                     <Form.Text className="text-danger ms-2">

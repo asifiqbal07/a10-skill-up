@@ -6,6 +6,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/LogIn/LogIn/Login";
 import SignUp from "../../Pages/LogIn/SignUp/SignUp";
 import PremiumVersion from "../../Pages/PremiumVersion/PremiumVersion";
+import Profile from "../../Pages/Profile/Profile";
 import Blog from "../../Pages/Shared/Blog/Blog";
 import FAQ from "../../Pages/Shared/FAQ/FAQ";
 import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndConditions";
@@ -60,6 +61,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/terms',
                 element: <TermsAndConditions></TermsAndConditions>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
         ]
     }

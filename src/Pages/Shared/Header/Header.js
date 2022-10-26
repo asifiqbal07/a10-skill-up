@@ -12,11 +12,11 @@ import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
-const handleLogOut = () =>{
-    logOut()
-    .then(()=>{})
-    .catch(e=>console.error(e))
-}
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(e => console.error(e))
+    }
 
     return (
         <div className=''>
@@ -29,38 +29,42 @@ const handleLogOut = () =>{
                                 roundedCircle
                                 src={logo}>
                             </Image>
-                            <span className='ms-2 mt-2 fs-4'>Skill <span className='text-danger'>Up</span></span>
+                            <span className='ms-2 mt-2 fs-3'>Skill <span className='text-danger'>Up</span></span>
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to='/courses' className='text-decoration-none text-black fw-semibold'>Courses</Link> </Nav.Link>
-                            <Nav.Link><Link to='/blog' className='text-decoration-none text-black fw-semibold'>Blog</Link> </Nav.Link>
-                            <Nav.Link><Link to='/faq' className='text-decoration-none text-black fw-semibold'>FAQ</Link> </Nav.Link>
+                            <Nav.Link><Link to='/courses' className='text-decoration-none text-dark fw-semibold'>Courses</Link> </Nav.Link>
+                            <Nav.Link><Link to='/blog' className='text-decoration-none text-dark fw-semibold'>Blog</Link> </Nav.Link>
+                            <Nav.Link><Link to='/faq' className='text-decoration-none text-dark fw-semibold'>FAQ</Link> </Nav.Link>
                         </Nav>
                         <Nav className='d-flex align-items-center'>
                             <Nav.Link>
                                 {
                                     user?.uid ?
-                                    <>
-                                    <span>{user?.displayName}</span>
-                                    <Button onClick={handleLogOut} className='ms-3' variant="outline-dark">Log Out</Button>
-                                    </>
-                                    :
-                                    <>
-                                    <Link to='/login' className='text-dark text-decoration-none mx-2'>Login</Link>
-                                    <Link to='/signup' className='text-dark text-decoration-none mx-2'>SignUp</Link>
-                                    </>
+                                        <>
+                                            <Link to='/profile'>
+                                                <Button variant="outline-danger" className='border-0'>{user?.displayName}</Button>
+                                            </Link>
+
+
+                                            <Button onClick={handleLogOut} className='border-0' variant="outline-dark">Log Out</Button>
+                                        </>
+                                        :
+                                        <>
+                                            <Link to='/login' className='text-dark text-decoration-none mx-2'>Login</Link>
+                                            <Link to='/signup' className='text-dark text-decoration-none mx-2'>SignUp</Link>
+                                        </>
                                 }
-                                </Nav.Link>
+                            </Nav.Link>
 
                             <Nav.Link>
                                 {user?.photoURL ?
-                                <Image style={{height:'35px'}} roundedCircle src={user.photoURL}></Image>
-                                :
-                                <Link to='/login'><FaUser className='text-dark'></FaUser></Link>
-                            }
+                                    <Link to='/profile'><Image style={{ height: '35px' }} roundedCircle src={user.photoURL}></Image></Link>
+                                    :
+                                    <Link to='/login'><FaUser className='text-dark'></FaUser></Link>
+                                }
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
