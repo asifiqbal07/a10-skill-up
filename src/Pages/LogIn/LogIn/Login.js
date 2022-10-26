@@ -2,7 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle, FaGithub, FaEye } from "react-icons/fa";
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -13,6 +13,7 @@ const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const [passwordShown, setPasswordShown] = useState(false);
 
     const from = location.state?.from?.pathname || '/';
 
@@ -57,6 +58,10 @@ const Login = () => {
             })
     }
 
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+    };
+
     return (
         <div>
             <Container>
@@ -82,8 +87,8 @@ const Login = () => {
                                     </Form.Group>
 
                                     <Form.Group className="mb-3" controlId="formBasicPassword">
-                                        <Form.Label className='fw-semibold'>Password</Form.Label>
-                                        <Form.Control className='bg-light py-2' type="password" name="password" placeholder="Password" required />
+                                        <Form.Label className='fw-semibold d-flex align-items-center justify-content-between'><span>Password</span><Button className='text-dark' onClick={togglePassword} variant="link"><FaEye></FaEye></Button></Form.Label>
+                                        <Form.Control className='bg-light py-2' type={passwordShown ? "text" : "password"} name="password" placeholder="Password" required />
                                     </Form.Group>
 
                                     <div className='d-flex align-items-center'>
@@ -97,7 +102,7 @@ const Login = () => {
                                 </Form>
                             </div>
                             <div className='d-flex align-items-center text-center justify-content-center'>
-                            <span>New here?</span> <span><Link className='text-decoration-none ms-2' to='/signup'>Sign Up</Link></span>
+                                <span>New here?</span> <span><Link className='text-decoration-none ms-2' to='/signup'>Sign Up</Link></span>
                             </div>
                         </div>
                     </Col>

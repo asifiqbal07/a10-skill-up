@@ -54,6 +54,7 @@ const Header = () => {
                             <Nav><Link to='/courses' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Courses</Link> </Nav>
                             <Nav><Link to='/blog' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Blog</Link> </Nav>
                             <Nav><Link to='/faq' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>FAQ</Link> </Nav>
+                            <Nav><Link to='/live' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Live</Link> </Nav>
                         </Nav>
                         <Nav className='d-flex align-items-center'>
                             <Nav>

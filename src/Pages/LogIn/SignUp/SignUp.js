@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
+import { FaEye } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
@@ -10,6 +11,7 @@ const SignUp = () => {
     const [error, setError] = useState('');
     const [accepted, setAccepted] = useState(false);
     const { createUser, updateUserProfile, verifyEmail } = useContext(AuthContext);
+    const [passwordShown, setPasswordShown] = useState(false);
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -58,6 +60,10 @@ const SignUp = () => {
         setAccepted(event.target.checked);
     }
 
+    const togglePassword = () => {
+        setPasswordShown(!passwordShown);
+    };
+
     return (
         <div>
             <Container>
@@ -83,8 +89,8 @@ const SignUp = () => {
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                                    <Form.Label className='fw-semibold'>Password<span className='text-danger'>*</span></Form.Label>
-                                    <Form.Control className='bg-light py-2' type="password" name="password" placeholder="Password" required />
+                                    <Form.Label className='fw-semibold d-flex align-items-center justify-content-between'><span>Password</span><Button className='text-dark' onClick={togglePassword} variant="link"><FaEye></FaEye></Button></Form.Label>
+                                    <Form.Control className='bg-light py-2' type={passwordShown ? "text" : "password"} name="password" placeholder="Password" required />
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formBasicCheckbox">

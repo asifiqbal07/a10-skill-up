@@ -11,6 +11,8 @@ import Blog from "../../Pages/Shared/Blog/Blog";
 import FAQ from "../../Pages/Shared/FAQ/FAQ";
 import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndConditions";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Header from "../../Pages/Shared/Header/Header";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 export const routes = createBrowserRouter([
     {
@@ -30,7 +32,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({params}) => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses/${params.id}`)
 
             },
             {
@@ -48,7 +50,7 @@ export const routes = createBrowserRouter([
             {
                 path: 'courses/premium/:id',
                 element: <PrivateRoute><PremiumVersion></PremiumVersion></PrivateRoute>,
-                loader: ({params}) => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/login',
@@ -67,5 +69,11 @@ export const routes = createBrowserRouter([
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
         ]
+    },
+    {
+        path: '*', element: <div>
+            <Header></Header>
+            <ErrorPage></ErrorPage>
+        </div>
     }
 ])
