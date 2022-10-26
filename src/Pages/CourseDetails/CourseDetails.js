@@ -5,7 +5,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const CourseDetails = () => {
     const courseDetails = useLoaderData();
-    const { name, course_instructor, total_download, rating, image_url, overview, course_details } = courseDetails;
+    const { name, course_instructor, total_download, rating, image_url, overview, course_details, id } = courseDetails;
     console.log(courseDetails);
     return (
         <div>
@@ -84,7 +84,7 @@ const CourseDetails = () => {
                             </div>
                             <div class="row justify-content-center mx-3 mb-3 pb-3">
 
-                                <Button className='mx-auto block text-center' variant="danger">Premium Version</Button>
+                                <Link to={`/courses/premium/${id}`}><Button className='mx-auto block text-center' variant="danger">Premium Version</Button></Link>
                             </div>
                         </div>
                     </Col>

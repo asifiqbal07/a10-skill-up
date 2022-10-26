@@ -16,7 +16,7 @@ const Carousels = () => {
                             alt="First slide"
                         />
                         <Carousel.Caption>
-                            <h4>Transform Your Career</h4>
+                            <h3>Check Our Upcoming Courses</h3>
                             <small>Top instructors from around the world teach millions of students</small>
                         </Carousel.Caption>
                     </a>
@@ -29,7 +29,7 @@ const Carousels = () => {
                             alt="Second slide"
                         />
                         <Carousel.Caption>
-                            <h4>Browse Our Free Courses</h4>
+                            <h3>Browse Our Free Courses</h3>
                             <small>Top instructors from around the world teach millions of students</small>
                         </Carousel.Caption>
                     </a>

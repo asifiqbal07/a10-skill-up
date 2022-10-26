@@ -8,6 +8,8 @@ import SignUp from "../../Pages/LogIn/SignUp/SignUp";
 import PremiumVersion from "../../Pages/PremiumVersion/PremiumVersion";
 import Blog from "../../Pages/Shared/Blog/Blog";
 import FAQ from "../../Pages/Shared/FAQ/FAQ";
+import TermsAndConditions from "../../Pages/TermsAndConditions/TermsAndConditions";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
     {
@@ -40,7 +42,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/premium',
-                element: <PremiumVersion></PremiumVersion>
+                element: <PrivateRoute><PremiumVersion></PremiumVersion></PrivateRoute>
+            },
+            {
+                path: 'courses/premium/:id',
+                element: <PrivateRoute><PremiumVersion></PremiumVersion></PrivateRoute>,
+                loader: ({params}) => fetch(`https://skill-up-server-asifiqbal07.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/login',
@@ -49,6 +56,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/terms',
+                element: <TermsAndConditions></TermsAndConditions>
             },
         ]
     }

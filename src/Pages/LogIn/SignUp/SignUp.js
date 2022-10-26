@@ -62,7 +62,7 @@ const SignUp = () => {
             <h2>SignUp</h2>
             <Form onSubmit={handleSignUp}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Your Name</Form.Label>
+                    <Form.Label>Your Name<span className='text-danger'>*</span></Form.Label>
                     <Form.Control type="text" name="name" placeholder="Your name" required />
                 </Form.Group>
 
@@ -72,12 +72,12 @@ const SignUp = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label>Email address<span className='text-danger'>*</span></Form.Label>
                     <Form.Control type="email" name="email" placeholder="Enter email" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label>Password<span className='text-danger'>*</span></Form.Label>
                     <Form.Control type="password" name="password" placeholder="Password" required />
                 </Form.Group>
 

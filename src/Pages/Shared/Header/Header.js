@@ -40,7 +40,7 @@ const handleLogOut = () =>{
                             <Nav.Link><Link to='/faq' className='text-decoration-none text-black fw-semibold'>FAQ</Link> </Nav.Link>
                         </Nav>
                         <Nav className='d-flex align-items-center'>
-                            <Nav.Link href="#deets">
+                            <Nav.Link>
                                 {
                                     user?.uid ?
                                     <>
@@ -59,7 +59,7 @@ const handleLogOut = () =>{
                                 {user?.photoURL ?
                                 <Image style={{height:'35px'}} roundedCircle src={user.photoURL}></Image>
                                 :
-                                <FaUser></FaUser>
+                                <Link to='/login'><FaUser className='text-dark'></FaUser></Link>
                             }
                             </Nav.Link>
                         </Nav>
