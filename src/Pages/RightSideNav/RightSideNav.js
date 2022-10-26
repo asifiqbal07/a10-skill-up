@@ -2,8 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import { FaGoogle, FaGithub, FaFacebook, FaTwitter, FaDiscord, FaInstagram, FaArrowRight, FaChevronRight } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Carousels from './Carousel/Carousels';
 

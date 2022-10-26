@@ -39,7 +39,7 @@ const CourseDetails = () => {
                                 </div>
                                 <div className='ms-lg-5 ps-lg-5 mt-3 mt-lg-0'>
                                     <div className='d-lg-flex flex-column align-items-center'>
-                                        <h6 className='mb-0'>Download File</h6>
+                                        <h6 className='mb-0'>Download File:</h6>
                                         <Link to="/files/myfile.pdf" target="_blank" download>
                                             <FaDownload className='text-danger fs-5 mt-1'></FaDownload></Link>
 
@@ -82,9 +82,9 @@ const CourseDetails = () => {
                                     <h6 className='ms-2 mb-0'>{course_details?.language}</h6>
                                 </div>
                             </div>
-                            <div class="row justify-content-center mx-3 mb-3 pb-3">
+                            <div class="d-flex justify-content-center mx-3 mb-3 pb-3 ">
 
-                                <Link to={`/courses/premium/${id}`}><Button className='mx-auto block text-center' variant="danger">Premium Version</Button></Link>
+                                <Link to={`/courses/premium/${id}`}><Button className='mx-auto block text-center px-5' variant="danger">Premium Version</Button></Link>
                             </div>
                         </div>
                     </Col>
