@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
@@ -59,41 +60,55 @@ const SignUp = () => {
 
     return (
         <div>
-            <h2>SignUp</h2>
-            <Form onSubmit={handleSignUp}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Your Name<span className='text-danger'>*</span></Form.Label>
-                    <Form.Control type="text" name="name" placeholder="Your name" required />
-                </Form.Group>
+            <Container>
+                <Row>
+                    <Col lg="4"></Col>
+                    <Col lg='4'>
+                        <h2 className='text-center fw-bolder'>Create A Free <br /><span className='text-danger'>Account</span> </h2>
+                        <div className='shadow p-3 mt-3'>
+                            <Form onSubmit={handleSignUp}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='fw-semibold'>Your Name<span className='text-danger'>*</span></Form.Label>
+                                    <Form.Control className='bg-light py-2' type="text" name="name" placeholder="Your name" required />
+                                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name="photoURL" placeholder="Photo URL" />
-                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='fw-semibold'>Photo URL</Form.Label>
+                                    <Form.Control className='bg-light py-2' type="text" name="photoURL" placeholder="Photo URL" />
+                                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address<span className='text-danger'>*</span></Form.Label>
-                    <Form.Control type="email" name="email" placeholder="Enter email" required />
-                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label className='fw-semibold'>Email Address<span className='text-danger'>*</span></Form.Label>
+                                    <Form.Control className='bg-light py-2' type="email" name="email" placeholder="Enter email" required />
+                                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password<span className='text-danger'>*</span></Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Password" required />
-                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label className='fw-semibold'>Password<span className='text-danger'>*</span></Form.Label>
+                                    <Form.Control className='bg-light py-2' type="password" name="password" placeholder="Password" required />
+                                </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check
-                        type="checkbox" onClick={handleAccepted}
-                        label={<>Accept <Link to='/terms'>Terms & Condition...</Link></>} required />
-                </Form.Group>
+                                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                                    <Form.Check
+                                        type="checkbox" onClick={handleAccepted}
+                                        label={<>Accept <Link to='/terms'>Terms & Condition...</Link></>} required />
+                                </Form.Group>
 
-                <Button variant="danger" type="submit" disabled={!accepted}>
-                    Sign UP
-                </Button>
-                <Form.Text className="text-danger me-2">
-                    {error}
-                </Form.Text>
-            </Form>
+                                <div className='d-flex align-items-center'>
+                                    <Button className='mx-auto block text-center px-5' variant="danger" type="submit" disabled={!accepted}>
+                                        Sign UP
+                                    </Button>
+                                </div>
+                                <Form.Text className="text-danger me-2 mt-2">
+                                    {error}
+                                </Form.Text>
+                                <div className='d-flex align-items-center text-center justify-content-center'>
+                                    <span>Already have an account?</span> <span><Link className='text-decoration-none ms-2' to='/login'>Login</Link></span>
+                                </div>
+                            </Form>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
@@ -8,15 +8,31 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [radioValue, setRadioValue] = useState('1');
+
+    const radios = [
+        { name: 'Light', value: '1' },
+        { name: 'Dark', value: '2' },
+    ];
 
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(e => console.error(e))
     }
+
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            {user?.displayName}
+        </Tooltip>
+    );
 
     return (
         <div className=''>
@@ -35,21 +51,39 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link><Link to='/courses' className='text-decoration-none text-dark fw-semibold'>Courses</Link> </Nav.Link>
-                            <Nav.Link><Link to='/blog' className='text-decoration-none text-dark fw-semibold'>Blog</Link> </Nav.Link>
-                            <Nav.Link><Link to='/faq' className='text-decoration-none text-dark fw-semibold'>FAQ</Link> </Nav.Link>
+                            <Nav><Link to='/courses' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Courses</Link> </Nav>
+                            <Nav><Link to='/blog' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Blog</Link> </Nav>
+                            <Nav><Link to='/faq' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>FAQ</Link> </Nav>
                         </Nav>
                         <Nav className='d-flex align-items-center'>
-                            <Nav.Link>
+                            <Nav>
+                                <ButtonGroup>
+                                    {radios.map((radio, idx) => (
+                                        <ToggleButton className='border-0'
+                                            key={idx}
+                                            id={`radio-${idx}`}
+                                            type="radio"
+                                            variant={idx % 2 ? 'outline-dark' : 'outline-danger'}
+                                            name="radio"
+                                            value={radio.value}
+                                            checked={radioValue === radio.value}
+                                            onChange={(e) => setRadioValue(e.currentTarget.value)}
+                                        >
+                                            {radio.name}
+                                        </ToggleButton>
+                                    ))}
+                                </ButtonGroup>
+                            </Nav>
+                            <Nav>
                                 {
                                     user?.uid ?
                                         <>
                                             <Link to='/profile'>
-                                                <Button variant="outline-danger" className='border-0'>{user?.displayName}</Button>
+                                                <Button variant="outline-danger" className='border-0 fw-semibold'>{user?.displayName}</Button>
                                             </Link>
 
 
-                                            <Button onClick={handleLogOut} className='border-0' variant="outline-dark">Log Out</Button>
+                                            <Button onClick={handleLogOut} className='border-0 fw-semibold' variant="outline-dark">Log Out</Button>
                                         </>
                                         :
                                         <>
@@ -57,15 +91,21 @@ const Header = () => {
                                             <Link to='/signup' className='text-dark text-decoration-none mx-2'>SignUp</Link>
                                         </>
                                 }
-                            </Nav.Link>
+                            </Nav>
 
-                            <Nav.Link>
-                                {user?.photoURL ?
-                                    <Link to='/profile'><Image style={{ height: '35px' }} roundedCircle src={user.photoURL}></Image></Link>
-                                    :
-                                    <Link to='/login'><FaUser className='text-dark'></FaUser></Link>
-                                }
-                            </Nav.Link>
+                            <Nav className='ms-lg-3'>
+                                <OverlayTrigger
+                                    placement="bottom"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderTooltip}
+                                >
+                                    {user?.photoURL ?
+                                        <Link to='/profile'><Image style={{ height: '35px' }} roundedCircle src={user.photoURL}></Image></Link>
+                                        :
+                                        <Link to='/login'><FaUser className='text-dark'></FaUser></Link>
+                                    }
+                                </OverlayTrigger>
+                            </Nav>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>

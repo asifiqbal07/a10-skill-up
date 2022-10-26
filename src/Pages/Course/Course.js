@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => {
     const { image_url, name, course_instructor, rating, total_download, course_details, id } = course;
-    console.log(course);
     return (
         <div>
             <Col className='p-2 '>

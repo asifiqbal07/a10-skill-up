@@ -8,7 +8,7 @@ const Carousels = () => {
         <div>
             <Carousel>
                 <Carousel.Item>
-                    <a href="https://www.fiverr.com/iqbalasif07?up_rollout=true" target='blank'>
+                    <a href="https://web.programming-hero.com/" target='blank'>
 
                         <img
                             className="d-block img-thumbnail"
@@ -22,7 +22,7 @@ const Carousels = () => {
                     </a>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <a href="https://www.fiverr.com/iqbalasif07?up_rollout=true" target='blank'>
+                    <a href="https://web.programming-hero.com/" target='blank'>
                         <img
                             className="d-block img-thumbnail"
                             src={Photo2}

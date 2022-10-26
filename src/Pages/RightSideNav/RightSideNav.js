@@ -16,10 +16,10 @@ const RightSideNav = () => {
     }, [])
 
     return (
-        <div className='sticky-top shadow mt-3 mt-lg-5 mb-4 p-3'>
+        <div className='sticky-top shadow rounded-3 mt-3 mt-lg-5 mb-4 p-3'>
             
             <div className='ps-2'>
-                <h4 className='text-center'>All Courses</h4>
+                <h4 className='text-center'>Check All Courses</h4>
                 <div className='mt-3 ms-3'>
                 {
                     categories.map(category => <h6 className='m-0' key={category.id}>
