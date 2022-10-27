@@ -6,6 +6,7 @@ import { FaGoogle, FaGithub, FaEye } from "react-icons/fa";
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Login = () => {
 
@@ -25,6 +26,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Login Successful');
             })
             .catch(e => console.log(e))
     }
@@ -34,6 +36,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Login Successful');
             })
             .catch(e => console.log(e))
     }
@@ -48,13 +51,15 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                
                 form.reset();
                 setError('');
                 navigate(from, { replace: true });
+                toast.success('Login Successful');
             })
             .catch(error => {
                 console.error(error)
-                setError(error.message);
+                setError('Invalid username or password');
             })
     }
 
@@ -74,7 +79,7 @@ const Login = () => {
                         <div className='shadow p-3 mt-3'>
                             <div className='mt-1 mx-auto row'>
                                 <Button onClick={handleGoogleSignIn} variant="danger" className=''><FaGoogle className='mb-1'></FaGoogle> Log in with Google</Button>
-                                <Button onClick={handleGithubSignIn} variant="danger" className='mt-2'> <FaGithub className='mb-1'></FaGithub> Log in with Github</Button>
+                                <Button onClick={handleGithubSignIn} variant="danger" className='mt-3'> <FaGithub className='mb-1'></FaGithub> Log in with Github</Button>
                                 <small className='text-center text-secondary my-3'>Or, sign in with your email</small>
                                 <hr className='w-75 mx-auto' />
                             </div>
@@ -91,17 +96,17 @@ const Login = () => {
                                         <Form.Control className='bg-light py-2' type={passwordShown ? "text" : "password"} name="password" placeholder="Password" required />
                                     </Form.Group>
 
-                                    <div className='d-flex align-items-center'>
+                                    <div className='d-flex align-items-center mb-2'>
                                         <Button className='mx-auto block text-center px-5' variant="danger" type="submit">
                                             Submit
                                         </Button>
                                     </div>
-                                    <Form.Text className="text-danger ms-2">
+                                    <Form.Text className="text-danger ms-2 d-flex align-items-center text-center justify-content-center">
                                         {error}
                                     </Form.Text>
                                 </Form>
                             </div>
-                            <div className='d-flex align-items-center text-center justify-content-center'>
+                            <div className='d-flex align-items-center text-center justify-content-center mt-2'>
                                 <span>New here?</span> <span><Link className='text-decoration-none ms-2' to='/signup'>Sign Up</Link></span>
                             </div>
                         </div>

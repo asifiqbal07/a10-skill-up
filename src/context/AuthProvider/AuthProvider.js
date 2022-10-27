@@ -53,21 +53,24 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    const authInfo = {
-        user,
-        providerLogin,
-        createUser,
-        signIn,
-        loading,
-        updateUserProfile,
-        verifyEmail,
-        logOut
-    };
-    return (
-        <AuthContext.Provider value={authInfo}>
-            {children}
-        </AuthContext.Provider>
-    );
-};
 
-export default AuthProvider;
+    
+
+        const authInfo = {
+            user,
+            providerLogin,
+            createUser,
+            signIn,
+            loading,
+            updateUserProfile,
+            verifyEmail,
+            logOut,
+        };
+        return (
+            <AuthContext.Provider value={authInfo}>
+                {children}
+            </AuthContext.Provider>
+        );
+    };
+
+    export default AuthProvider;

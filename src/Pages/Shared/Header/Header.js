@@ -12,6 +12,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
+// import toast from 'react-hot-toast';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -68,6 +69,20 @@ const Header = () => {
                                             name="radio"
                                             value={radio.value}
                                             checked={radioValue === radio.value}
+                                            // onClick={(event) => {
+                                            //     if (event === 'outline-dark') {
+                                            //         toast('Hello Darkness!',
+                                            //             {
+                                            //                 icon: '👏',
+                                            //                 style: {
+                                            //                     borderRadius: '10px',
+                                            //                     background: '#333',
+                                            //                     color: '#fff',
+                                            //                 },
+                                            //             }
+                                            //         );
+                                            //     }
+                                            // }}
                                             onChange={(e) => setRadioValue(e.currentTarget.value)}
                                         >
                                             {radio.name}

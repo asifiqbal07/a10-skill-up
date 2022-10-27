@@ -9,8 +9,9 @@ const FAQ = () => {
             <Container>
                 <Row>
                     <Col lg="8">
-                        <h2>Let's check out Latest <span className='text-danger'>Blogs.</span></h2>
-                        <Accordion>
+                        <h2>FAQS.
+                        </h2>
+                        <Accordion className='mt-3'>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>#1 How to pay?</Accordion.Header>
                                 <Accordion.Body>
