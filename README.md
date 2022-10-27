@@ -1,17 +1,24 @@
-# Skill Up
+# Readme information for the assignment
 
+Project Name: Skill Up
 
-# Links - 
+## Server Links - 
 + Server Github Link: https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-asifiqbal07
 + Client Side Link: https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-asifiqbal07
 
+## Special features of the website-
 
++ You can Login from 3 different ways. (Email-Pass, Google, GitHub)
++ You can Download Course Page PDF.
++ I add show Password option on the Password Field.
++ I added a Clickable Carousel Slider.
++ You can Show you Name and Email on the Header if you logged in.
 
+## List of technologies -
 
-
-
-
-
++ I used Bootstrap CSS framework.
++ Server data working by Vercel.
++ Live site is running by Firebase Hosting.
 
 
 

@@ -12,7 +12,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-// import toast from 'react-hot-toast';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -52,10 +51,10 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav><Link to='/courses' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Courses</Link> </Nav>
-                            <Nav><Link to='/blog' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Blog</Link> </Nav>
-                            <Nav><Link to='/faq' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>FAQ</Link> </Nav>
-                            <Nav><Link to='/live' className='text-decoration-none text-dark fw-semibold m-2 m-lg-3'>Live</Link> </Nav>
+                            <Nav><Link to='/courses' className='text-decoration-none text-dark fw-semibold m-2 m-lg-4'>Courses</Link> </Nav>
+                            <Nav><Link to='/blog' className='text-decoration-none text-dark fw-semibold m-2 m-lg-4'>Blog</Link> </Nav>
+                            <Nav><Link to='/faq' className='text-decoration-none text-dark fw-semibold m-2 m-lg-4'>FAQ</Link> </Nav>
+                            <Nav><Link to='/live' className='text-decoration-none text-dark fw-semibold m-2 m-lg-4'>Live</Link> </Nav>
                         </Nav>
                         <Nav className='d-flex align-items-center'>
                             <Nav>
@@ -69,20 +68,7 @@ const Header = () => {
                                             name="radio"
                                             value={radio.value}
                                             checked={radioValue === radio.value}
-                                            // onClick={(event) => {
-                                            //     if (event === 'outline-dark') {
-                                            //         toast('Hello Darkness!',
-                                            //             {
-                                            //                 icon: '👏',
-                                            //                 style: {
-                                            //                     borderRadius: '10px',
-                                            //                     background: '#333',
-                                            //                     color: '#fff',
-                                            //                 },
-                                            //             }
-                                            //         );
-                                            //     }
-                                            // }}
+    
                                             onChange={(e) => setRadioValue(e.currentTarget.value)}
                                         >
                                             {radio.name}
@@ -90,7 +76,7 @@ const Header = () => {
                                     ))}
                                 </ButtonGroup>
                             </Nav>
-                            <Nav>
+                            <Nav className='mt-2 mt-lg-0'>
                                 {
                                     user?.uid ?
                                         <>
